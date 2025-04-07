@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>FiXAmongUs</AssemblyName>
+    <Version>1.0.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <RestoreAdditionalProjectSources>
+      https://api.nuget.org/v3/index.json;
+      https://nuget.bepinex.dev/v3/index.json;
+      https://nuget.samboy.dev/v3/index.json
+    </RestoreAdditionalProjectSources>
+    <RootNamespace>FiXAmongUs</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AmongUs.GameLibs.Steam" Version="2025.3.25" />
+    <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.*" IncludeAssets="compile" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
+    <PackageReference Include="HarmonyX" Version="2.14.0" />
+  </ItemGroup>
+  
+  <!-- THX TSR AND SUPESHIO GitHub: https://github.com/supeshio/TheSpaceRoles -->
+  <!-- JP: AmongUsのゲームフォルダを環境変数に設定してください。(名称:AmongUs) -->
+  <!-- ↓読み込み↓ -->
+	<ItemGroup>
+		<Reference Include="$(AmongUs)/BepInEx/core/*.dll" />
+		<Reference Include="$(AmongUs)/BepInEx/interop/*.dll" />
+	</ItemGroup> 
+	<!-- ↓テスト(起動)用↓ -->
+  <Target Name="Copy" AfterTargets="Build" Condition="'$(AmongUs)' != ''">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(AmongUs)/BepInEx/plugins/" UseSymboliclinksIfPossible="true" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="Builds" UseSymboliclinksIfPossible="true" />
+  </Target>
+  <!-- THX TSR AND SUPESHIO -->
+  
+</Project>
