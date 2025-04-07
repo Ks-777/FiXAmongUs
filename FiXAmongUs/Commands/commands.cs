@@ -4,7 +4,7 @@ using AmongUs.Data;
 using BepInEx.Logging;
 using UnityEngine;
 
-namespace NetherTownRoles.Patches;
+namespace FiXAmongUs;
 
 [HarmonyPatch(typeof(ChatController), nameof(ChatController.SendChat))]
 class ChatCommandPatch

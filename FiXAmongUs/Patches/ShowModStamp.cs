@@ -1,6 +1,6 @@
 using HarmonyLib;
 
-namespace NetherTownRoles;
+namespace FiXAmongUs;
 
 [HarmonyPatch(typeof(ModManager), "LateUpdate")]
 public class ShowModStampPatch

@@ -1,7 +1,7 @@
 using HarmonyLib;
 using Rewired.Utils.Platforms.Windows;
 
-namespace TownOfPlus
+namespace FiXAmongUs
 {
     [HarmonyPatch(typeof(SplashManager), nameof(SplashManager.Update))]
     class SkipLogo
