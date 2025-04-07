@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace NetherTownRoles.Helpers
+namespace FiXAmongUs.Helper
 {
     public static class Data
     {
